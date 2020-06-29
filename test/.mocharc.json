@@ -6,7 +6,10 @@
   "slow": 1500,
   "timeout": 20000,
   "recursive": true,
-  "file": ["test/unit/lib/schema/reservation.js"],
+  "file": [
+    "test/unit/lib/schema/reservation.js",
+    "test/unit/lib/reservation.js"
+  ],
   "ui": "bdd",
   "watch-files": ["lib/**/*.js", "test/**/*.js"],
   "watch-ignore": ["lib/middleware"]
