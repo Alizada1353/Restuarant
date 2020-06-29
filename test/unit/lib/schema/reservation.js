@@ -20,4 +20,36 @@ describe("Reservation Schema", function () {
       should.not.exist(Reservation.combineDateTime(date, time));
     });
   });
+
+  context("Validator", function () {
+    it("should pass a valid reservation with no optional fields", function (done) {
+      const reservation = new Reservation({
+        date: "2020/06/10",
+        time: "06:02 AM",
+        party: 4,
+        name: "Family",
+        email: "family@ymail.com",
+      });
+
+      reservation.validator(function (error, value) {
+        value.should.deep.equal(reservation);
+        done(error);
+      });
+    });
+
+    it("should fail a reservation with a bad email", function (done) {
+      const reservation = new Reservation({
+        date: "2020/06/10",
+        time: "06:02 AM",
+        party: 4,
+        name: "Family",
+        email: "something",
+      });
+
+      reservation.validator(function (error) {
+        error.should.be.an("error").and.not.be.null;
+        done();
+      });
+    });
+  });
 });
