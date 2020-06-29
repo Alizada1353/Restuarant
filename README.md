@@ -8,3 +8,6 @@ finally this application won't have any issues and bugs.
 
 This project uses EditorConfig to standerdized editor configuation.
 Visit http://editorconfig.org for details.
+
+This project uses ESlint to detect suspicious code in JavaScript files.
+Visit http://eslint.org for details.
